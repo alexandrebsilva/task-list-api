@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Task = mongoose.model('Task');
 module.exports = {
     async createTask(req, res) {
-        await Task.create(req.body)
+        const createdTask = await Task.create(req.body)
 
-        return res.send("newTask gravada")
+        return res.send(createdTask)
     },
 
     async listAllTasks(req, res) {
