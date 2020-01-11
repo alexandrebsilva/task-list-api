@@ -2,13 +2,7 @@ const mongoose = require('mongoose');
 const Task = mongoose.model('Task');
 module.exports = {
     async createTask(req, res) {
-        Task.create(
-            req.body,
-            //first item : error, if exists
-            //second item : the created object
-            (err, reqData) => {
-                console.log(reqData)
-            })
+        await Task.create(req.body)
 
         return res.send("newTask gravada")
     },
@@ -16,6 +10,7 @@ module.exports = {
     async listAllTasks(req, res) {
         const tasks = await Task.find({})
         console.log(tasks)
+
         return res.json(tasks)
     },
     async taskDetail(req, res) {
