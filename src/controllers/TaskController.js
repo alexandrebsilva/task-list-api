@@ -8,8 +8,8 @@ module.exports = {
     },
 
     async listAllTasks(req, res) {
-        const tasks = await Task.find({})
-        console.log(tasks)
+        //sorts by priority
+        const tasks = await Task.find({}).sort({ "priority": -1 })
 
         return res.json(tasks)
     },
