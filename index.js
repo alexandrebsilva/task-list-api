@@ -21,4 +21,4 @@ const Task = mongoose.model('Task')
 
 app.use('/api', require('./src/web/routes.js'))
 
-var server = app.listen(process.env.PORT);
+var server = app.listen(process.env.PORT || 3000);
