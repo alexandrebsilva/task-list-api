@@ -21,5 +21,7 @@ const Task = mongoose.model('Task')
 
 app.use('/api', require('./src/web/routes.js'))
 
-const port = process.env.PORT || 3000
-app.listen(port, () => { console.log(port) })
+var server = app.listen(process.env.PORT || 5000, function () {
+    var port = server.address().port;
+    console.log("Express is working on port " + port);
+});
